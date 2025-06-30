@@ -5,9 +5,10 @@ import { spacing, typography } from "../../theme";
 import CustomButton from "@/components/ui/button";
 import { useNavigation } from "@react-navigation/native";
 import MaxWidthContainer from "@/layout/max-width-container";
+import { AuthNavigationProp } from "@/types/navigation.types";
 
 const Onbaroding = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<AuthNavigationProp>();
 
   return (
     <ImageBackground
@@ -28,7 +29,7 @@ const Onbaroding = () => {
           <CustomButton
             style={{ width: "48%" }}
             onPress={() => {
-              navigation.navigate("RegisterScreen");
+              navigation.navigate("sign-in");
             }}
             variant="ghost"
             title="Sign Up"
@@ -36,7 +37,7 @@ const Onbaroding = () => {
           <CustomButton
             style={{ width: "48%" }}
             onPress={() => {
-              navigation.navigate("LoginScreen");
+              navigation.navigate("login");
             }}
             title="Login"
           />

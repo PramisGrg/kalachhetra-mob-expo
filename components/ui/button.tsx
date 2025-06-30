@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
 
 const variantStyles: Record<string, ViewStyle> = {
   default: {
-    backgroundColor: colors.primary,
+    backgroundColor: colors.dark,
   },
   outline: {
     backgroundColor: "white",
