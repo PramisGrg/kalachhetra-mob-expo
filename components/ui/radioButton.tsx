@@ -1,60 +1,65 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import React from "react";
-import { ArtLogo, ArtistLogo } from "@/assets/icons";
 import { borderRadius, colors, spacing } from "../../theme";
-// import Hello from '../../assets/icons/art.svg';
+import { TSignInOptions } from "@/constants/sign-up-options";
 
-const options = [
-  {
-    label: "Art",
-    logo: ArtLogo,
-    value: "ART",
-  },
-  {
-    label: "Artist",
-    logo: ArtistLogo,
-    value: "ARTIST",
-  },
-];
+interface RadioButtonProps {
+  options: TSignInOptions[];
+  error?: string;
+  value: string | null;
+  onValueChange: (value: string | null) => void;
+}
 
-const RadioButton = () => {
+const RadioButton = ({
+  options,
+  value,
+  onValueChange,
+  error,
+}: RadioButtonProps) => {
   return (
-    <View
-      style={{
-        justifyContent: "space-between",
-        flexDirection: "row",
-        paddingHorizontal: spacing.md,
-      }}
-    >
+    <View style={style.container}>
       {options.map((item, index) => (
         <TouchableOpacity
+          onPress={() => {
+            onValueChange(item.value);
+          }}
           style={{
             borderWidth: 1,
-            borderColor: item.value === "ART" ? colors.dark : colors.border,
-            marginLeft: index === 0 ? -8 : 0,
-            marginRight: index === 1 ? -8 : 0,
             borderRadius: borderRadius.full,
             width: "50%",
+            borderColor: item.value === value ? colors.dark : colors.border,
+            marginLeft: index === 0 ? -8 : 0,
+            marginRight: index === 1 ? -8 : 0,
           }}
           key={item.label}
         >
-          <View
-            style={{
-              flexDirection: "row",
-              gap: spacing.md,
-              justifyContent: "center",
-              alignItems: "center",
-              padding: spacing.md,
-            }}
-          >
+          <View style={style.logoContainer}>
             {<item.logo />}
             <Text>{item.label}</Text>
           </View>
         </TouchableOpacity>
       ))}
-      {/* <Hello /> */}
+      {error && <Text style={style.errorText}>{error}</Text>}
     </View>
   );
 };
 
 export default RadioButton;
+
+const style = StyleSheet.create({
+  container: {
+    justifyContent: "space-between",
+    flexDirection: "row",
+    paddingHorizontal: spacing.md,
+  },
+  logoContainer: {
+    flexDirection: "row",
+    gap: spacing.md,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: spacing.md,
+  },
+  errorText: {
+    color: colors.error,
+  },
+});

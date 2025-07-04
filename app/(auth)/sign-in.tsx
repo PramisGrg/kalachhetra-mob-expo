@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -12,7 +13,8 @@ import { signupSchema, TSignupSchema } from "@/schemas/auth/signup.schema";
 import { useNavigation } from "@react-navigation/native";
 import { AuthNavigationProp } from "../../types/navigation.types";
 import { Link } from "expo-router";
-import RadioButton from "@/components/ui/radioButton";
+import { SignInOptions } from "@/constants/sign-up-options";
+import RadioButtonField from "@/components/ui/RadioFormField";
 
 const Register = () => {
   const navigation = useNavigation<AuthNavigationProp>();
@@ -60,10 +62,12 @@ const Register = () => {
             secureTextEntry={true}
           />
 
-          <View style={{ gap: spacing.sm }}>
-            <Text>What define you the best ?</Text>
-            <RadioButton />
-          </View>
+          <RadioButtonField
+            form={form}
+            name="role"
+            label="What describes you the best"
+            options={SignInOptions}
+          />
 
           <View style={{ justifyContent: "center", flexDirection: "row" }}>
             <Text>Already have an account ? </Text>

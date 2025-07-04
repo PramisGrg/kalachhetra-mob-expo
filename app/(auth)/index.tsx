@@ -6,9 +6,12 @@ import CustomButton from "@/components/ui/button";
 import { useNavigation } from "@react-navigation/native";
 import MaxWidthContainer from "@/layout/max-width-container";
 import { AuthNavigationProp } from "@/types/navigation.types";
+import * as Linking from "expo-linking";
 
 const Onbaroding = () => {
   const navigation = useNavigation<AuthNavigationProp>();
+  const url = Linking.useURL();
+  console.log(url, "Thisis url ");
 
   return (
     <ImageBackground

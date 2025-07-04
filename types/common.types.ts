@@ -1,13 +1,4 @@
-import {SingleArtist} from './artist.types';
-
-export interface Comment {
-  _id: string;
-  comment: string;
-  author: SingleArtist;
-  replies: Comment[];
-  createdAt: string;
-  updatedAt: string;
-}
+import { SingleArtist } from "./artist.types";
 
 export interface LabelValue {
   name: string;
@@ -37,8 +28,8 @@ export interface Comment {
 }
 
 export enum ActorRole {
-  ARTIST = 'ARTIST',
-  ART_GEEK = 'ARTGEEK',
+  ARTIST = "ARTIST",
+  ART_GEEK = "ARTGEEK",
 }
 
 export interface TPagination {
