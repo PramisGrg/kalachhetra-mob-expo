@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -14,7 +13,7 @@ import { useNavigation } from "@react-navigation/native";
 import { AuthNavigationProp } from "../../types/navigation.types";
 import { Link } from "expo-router";
 import { SignInOptions } from "@/constants/sign-up-options";
-import RadioButtonField from "@/components/ui/RadioFormField";
+import RadioButtonField from "@/components/ui/radioFormField";
 
 const Register = () => {
   const navigation = useNavigation<AuthNavigationProp>();

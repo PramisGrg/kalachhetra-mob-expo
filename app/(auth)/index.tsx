@@ -10,8 +10,8 @@ import * as Linking from "expo-linking";
 
 const Onbaroding = () => {
   const navigation = useNavigation<AuthNavigationProp>();
-  const url = Linking.useURL();
-  console.log(url, "Thisis url ");
+  // const url = Linking.useURL();
+  // console.log(url, "Thisis url ");
 
   return (
     <ImageBackground
