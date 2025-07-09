@@ -1,0 +1,10 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "developer-options-checker": ["../src/index"],
+      "developer-options-checker/*": ["../src/*"]
+    }
+  }
+}
